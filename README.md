@@ -35,6 +35,9 @@ Una vez ejecutado, el programa nos da la opción de entrar a modo manual ingresa
 
 Si se ingresó 1 para entrar a modo manual, se debe ingresar la operación a realizar utilizando ACC para referirse al acumulador y R(Número de registro a utilizar, ejemplo: R0 o R4). Al ingresar la operación, podemos observar los valores en PC, MAR, ROM y en el acumulador para facilidad de uso, donde podemos continuar ingresando operaciones hasta cerrar el programa.
 ![4](/images/4.png)
+
+Si se ingresó 2 para entrar a modo automático, el programa realizará las intrucciones y valores de los registros empezando por R0 leyendo cada registro, continuando recursivamente hasta que el programa sea detenido.
+
 ## Conjunto de instrucciones
 
 | CODIGO DE OPERACIÓN | TIPO              | CATEGORIA             | DESCRIPCIÓN                                                                       |
