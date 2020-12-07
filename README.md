@@ -69,7 +69,8 @@ En el caso del modo automático siempre se obtienen los datos e instrucciones en
 
 | Tipo de instrucción | Primer segmento     | Segundo segmento  | Tercer segmento | Cuarto segmento   | Quinto segmento | S                  |
 |---------------------|---------------------|-------------------|-----------------|-------------------|-----------------|--------------------|
-| Inmediato           | Código de operación | Espacio en blanco | ACC,            | Espacio en blanco | #               | Número decimal     |
+| Inmediato(Decimal)  | Código de operación | Espacio en blanco | ACC,            | Espacio en blanco | #               | Número decimal     |
+| Inmediato(Hexadecimal)| Código de operación | Espacio en blanco| ACC,           | Espacio en blanco | h               | Número hexadecimal     |
 | Directo             | Código de operación | Espacio en blanco | ACC,            | Espacio en blanco | R               | Número de registro |
 
 ## Ciclo de búsqueda-decodificación-ejecución (máquina de estado)
