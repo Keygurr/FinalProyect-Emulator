@@ -7,11 +7,11 @@ Si el usuario no cuenta con un IDE, puede entrar a la siguiente página para ins
 
 Una vez en la página que se anexó anteriormente, el usuario debe de elegir la versión apropiada para la máquina con la que esté trabajando. Después de descargar y ejecutar los protocolos de instalación, el usuario puede de inmediato modificar y crear archivos dentro del IDE. Lo que se debe de hacer en primera instancia es ubicar la pestaña de extensiones que se ubica del lado derecho de la ventana dentro de la aplicación. Como se muestra en la imagen a continuación.
 
-![guia](/img/1.png)
+![1](/images/1.png)
 Captura de pantalla que muestra la ventana de inicio con las pestañas de acceso
 Una vez dentro del menú de extensiones, dentro de la barra buscadora puede ingresar “Java” para encontrar la extensión desarrollada por Microsoft para ejecutar archivos del tipo “.java”.
 
-![guia](/img/2.png)
+![2](/images/2.png)
 La extensión que se muestra en la primera posición en orden descendente en la captura de pantalla a la izquierda muestra la extensión llamada “Debugger for Java”, que es la que debe de instalarse para hacer uso de este emulador.
 
 El proceso de instalación consiste solamente de entrar a la extensión mencionada desde el menú de extensiones y oprimir el botón “instalar” que se encuentra en la primera sección del contenido de la extensión. O basta con oprimir el botón verde con el mismo nombre desde la barra de extensiones.
