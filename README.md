@@ -1,4 +1,4 @@
-# FinalProyect-Emulator
+# Proyecto Final: Emulador de CPU
 
 ## Instalación
 ## Configuración
