@@ -43,6 +43,19 @@ Finalmente lo que resta es abrir el archivo de “RUN.java” desde el directori
 
 ## Problemas de temporización y rendimiento
 
+| Código de operación | Tipo              | Tiempo (segundos) |
+|---------------------|-------------------|-------------------|
+| ADD                 | Inmediato         | 0.000193399       |
+| ADD                 | Directo           | 0.0002246         |
+| SUB                 | Inmediato         | 0.0002636         |
+| SUB                 | Directo           | 0.000186799       |
+| AND                 | Inmediato         | 0.0002422         |
+| AND                 | Directo           | 0.000314801       |
+| OR                  | Inmediato         | 0.0002422         |
+| OR                  | Directo           | 0.000224401       |
+| MOV                 | Directo           | 0.000299801       |
+| NOT                 | Directo/Inmediato | 0                 |
+
 ## Integrantes
 
 Marco Velez 26629
