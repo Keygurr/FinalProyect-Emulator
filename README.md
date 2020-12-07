@@ -31,16 +31,14 @@ Finalmente lo que resta es abrir el archivo de “RUN.java” desde el directori
 | OR                  | Inmediato/Directo | Operación de ALU      | Operación de Bitwise OR al acumulador con un número decimal o valor de registro.  |
 | MOV                 | Directo           | Transferencia de dato | Transfiere el valor de un registro al acumulador.                                 |
 | NOT                 | Inmediato/Directo | Operación de ALU      | No realiza nada.                                                                  |
+
 ## Formato de datos
 
-| Tipo de instrucción | P                 | CATEGORIA             | DESCRIPCIÓN                                                                       |
-|---------------------|-------------------|-----------------------|-----------------------------------------------------------------------------------|
-| ADD                 | Inmediato/Directo | Operación de ALU      | Suma un número decimal o el valor de registro al acumulador.                      |
-| SUB                 | Inmediato/Directo | Operación de ALU      | Resta un número decimal o el valor de registro al acumulador.                     |
-| MOV                 | Directo           | Transferencia de dato | Transfiere el valor de un registro al acumulador.                                 |
-| AND                 | Inmediato/Directo | Operación de ALU      | Operación de Bitwise AND al acumulador con un número decimal o valor de registro. |
-| OR                  | Inmediato/Directo | Operación de ALU      | Operación de Bitwise OR al acumulador con un número decimal o valor de registro.  |
-| NOT                 | Inmediato/Directo | Operación de ALU      | No realiza nada.                                                                  |
+| Tipo de instrucción | Primer segmento     | Segundo segmento  | Tercer segmento | Cuarto segmento   | Quinto segmento | S                  |
+|---------------------|---------------------|-------------------|-----------------|-------------------|-----------------|--------------------|
+| Inmediato           | Código de operación | Espacio en blanco | ACC,            | Espacio en blanco | #               | Número decimal     |
+| Directo             | Código de operación | Espacio en blanco | ACC,            | Espacio en blanco | R               | Número de registro |
+
 ## Ciclo de búsqueda-decodificación-ejecución (máquina de estado)
 
 ## Problemas de temporización y rendimiento
