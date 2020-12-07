@@ -15,7 +15,7 @@ public class RUN{
         boolean[] MAR_Output = new boolean[3];
 
         if(enterEmulator == 2){
-            AutoMode(0, PC_Counter, MAR_Output, ACC_valor);
+            AutoMode(PC_Counter, MAR_Output, ACC_valor);
         }
 
 
@@ -616,11 +616,7 @@ public class RUN{
         return null;
     }
 
-    public static void AutoMode(int CualRegistro, boolean[] PC_Counter, boolean[] MAR_Output, boolean[] ACC_valor){
-        if(CualRegistro == 8){
-            CualRegistro = 1;
-        }
-
+    public static void AutoMode(boolean[] PC_Counter, boolean[] MAR_Output, boolean[] ACC_valor){
         ROM mostrarROM = new ROM();
         
         boolean[] accion = new boolean[4];
@@ -628,6 +624,9 @@ public class RUN{
 
         PC_Counter = PC(PC_Counter); // aumenta en 1 hasta el 8 (INICIA EN 000 Y AUMENTA HASTA EL 111 Y DE AHI REINICIA A 000)
         MAR_Output = MAR(PC_Counter);// Despues se dirige a MAR
+
+        String CualRegistroString = turnBooleanToBinary(MAR_Output);
+        int CualRegistro = Integer.parseInt(CualRegistroString, 2);
 
 
         String registro = "R" + CualRegistro;
@@ -698,7 +697,7 @@ public class RUN{
         clearScreen();
 
 
-        AutoMode(CualRegistro + 1, PC_Counter, MAR_Output, ACC_valor);
+        AutoMode(PC_Counter, MAR_Output, ACC_valor);
     }
 
 }
