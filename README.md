@@ -33,7 +33,7 @@ Aquí se pueden modificar los valores de los registros (los primeros ocho) utili
 Una vez ejecutado, el programa nos da la opción de entrar a modo manual ingresando 1, donde nos permite introducir operaciones manualmente, o en automático ingresando, que lee los registros para ejecutar las instrucciones.
 ![3](/images/3.png)
 
-Si se ingresó 1 para entrar a modo manual, se debe ingresar la operación a realizar utilizando ACC para referirse al acumulador y R(Número de registro a utilizar, ejemplo: R0 o R4). Al ingresar la operación, podemos observar los valores en PC, MAR, ROM y en el acumulador para facilidad de uso, donde podemos continuar ingresando operaciones hasta cerrar el programa.
+Si se ingresó 1 para entrar a modo manual, se debe ingresar la operación a realizar utilizando ACC para referirse al acumulador, R junto al número de registro a utilizar (ejemplo: R0 o R4). En caso de que se desee ingresar un dato decimal y se escribe # antes del número, para hexadecimal h antes del número. Al ingresar la operación, podemos observar los valores en PC, MAR, ROM y en el acumulador para facilidad de uso, donde podemos continuar ingresando operaciones hasta cerrar el programa.
 ![4](/images/4.png)
 
 Si se ingresó 2 para entrar a modo automático, el programa realizará las intrucciones y valores de los registros empezando por R0 leyendo cada registro, continuando recursivamente hasta que el programa sea detenido.
