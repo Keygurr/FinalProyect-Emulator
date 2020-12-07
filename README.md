@@ -38,6 +38,12 @@ Si se ingresó 1 para entrar a modo manual, se debe ingresar la operación a rea
 
 Si se ingresó 2 para entrar a modo automático, el programa realizará las intrucciones y valores de los registros empezando por R0 leyendo cada registro, continuando recursivamente hasta que el programa sea detenido.
 
+![auto](/images/auto.png)
+
+## Memoria Virtual, registros y banderas
+
+Esta versión del emulador cuenta con 16 registros funcionales, pero solo se hace uso de los primeros ocho para la ejecución de acciones e instrucciones integradas dentro del programa. La implementación de banderas no fue necesaria para esta versión del emulador y respecto a la memoria virtual. Y finalmente, en esta versión se ha implementado una memoria de tipo ROM (memoria de solo lectura). 
+
 ## Conjunto de instrucciones
 
 | CODIGO DE OPERACIÓN | TIPO              | CATEGORIA             | DESCRIPCIÓN                                                                       |
@@ -51,6 +57,16 @@ Si se ingresó 2 para entrar a modo automático, el programa realizará las intr
 
 ## Formato de datos
 
+El manejo de la información se lleva a cabo en arreglos de variables de tipo booleano. Se han implementado funciones para convertir datos dentro de arreglos de tipo booleano a datos en sistema binario y viceversa.
+
+En el caso del modo manual el usuario puede ingresar los datos de 3 diferentes maneras:
+De forma decimal, indicando con un ‘#’ al inicio del dato (Ej. MOV ACC, #1)
+De forma hexadecimal, indicando con una ‘h’ al final del dato (EJ. MOV ACC, ah)
+Con el valor de un registro, es decir, con un valor almacenado en la ROM (Ej. MOV ACC, R0)
+
+En el caso del modo automático siempre se obtienen los datos e instrucciones en base al contenido de la ROM.
+
+
 | Tipo de instrucción | Primer segmento     | Segundo segmento  | Tercer segmento | Cuarto segmento   | Quinto segmento | S                  |
 |---------------------|---------------------|-------------------|-----------------|-------------------|-----------------|--------------------|
 | Inmediato           | Código de operación | Espacio en blanco | ACC,            | Espacio en blanco | #               | Número decimal     |
@@ -58,7 +74,11 @@ Si se ingresó 2 para entrar a modo automático, el programa realizará las intr
 
 ## Ciclo de búsqueda-decodificación-ejecución (máquina de estado)
 
+![ciclo](/images/ciclo.png)
+
 ## Problemas de temporización y rendimiento
+
+Lo único que es importante mencionar en esta sección es que al elegir la opción de “AutoMode” se genera un retraso de 10s entre cada acción, con el propósito de permitirle al usuario el identificar las acciones realizadas con mayor claridad, esperando que obtenga un mejor aprendizaje o conocimiento respecto a los modos de operación y la lógica del emulador en esta funcionalidad más amigable al usuario.
 
 | Código de operación | Tipo              | Tiempo (segundos) |
 |---------------------|-------------------|-------------------|
