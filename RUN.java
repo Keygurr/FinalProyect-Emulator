@@ -1,17 +1,22 @@
 import java.util.*;
 
+
 public class RUN{
 
     public static void main(String[] args){
 
         Scanner entrada = new Scanner(System.in);
-        System.out.println("[1] ENTER EMULATOR   [2] EXIT");
+        System.out.println("[1] ENTER MANUAL EMULATOR   [2] ENTER AUTO MODE EMULATOR");
         int enterEmulator = entrada.nextInt();
         entrada.nextLine();
 
         boolean[] PC_Counter = new boolean[3]; 
         boolean[] ACC_valor = new boolean[8];
         boolean[] MAR_Output = new boolean[3];
+
+        if(enterEmulator == 2){
+            AutoMode(0, PC_Counter, MAR_Output, ACC_valor);
+        }
 
 
         while(enterEmulator == 1){
@@ -390,6 +395,17 @@ public class RUN{
     public static boolean[] restaEntreDosBooleanArrays(boolean[] elRestado, boolean[] loQueResta, int tamanio){
         boolean[] resultado = new boolean[elRestado.length];
 
+        // Si el operando es mayor al operado entonces no resto, porque no se como manejar residuos
+        String operado = turnBooleanToBinary(elRestado);
+        String operando = turnBooleanToBinary(loQueResta);
+        int decimalOperado = Integer.parseInt(operado, 2);
+        int decimalOperando = Integer.parseInt(operando, 2);
+        if(decimalOperado < decimalOperando){
+            return elRestado;
+        }
+
+
+
         String binario_elRestado = turnBooleanToBinary(elRestado);            // Convierto en binario el array de booleanos
         String binario_loQueResta = turnBooleanToBinary(loQueResta);          // Convierto en binario el array de booleanos
         int decimal_elRestado = Integer.parseInt(binario_elRestado, 2);       // Convierto en decimal el valor binario
@@ -600,6 +616,89 @@ public class RUN{
         return null;
     }
 
+    public static void AutoMode(int CualRegistro, boolean[] PC_Counter, boolean[] MAR_Output, boolean[] ACC_valor){
+        if(CualRegistro == 8){
+            CualRegistro = 1;
+        }
 
+        ROM mostrarROM = new ROM();
+        
+        boolean[] accion = new boolean[4];
+        boolean[] input = new boolean[4];
+
+        PC_Counter = PC(PC_Counter); // aumenta en 1 hasta el 8 (INICIA EN 000 Y AUMENTA HASTA EL 111 Y DE AHI REINICIA A 000)
+        MAR_Output = MAR(PC_Counter);// Despues se dirige a MAR
+
+
+        String registro = "R" + CualRegistro;
+        boolean[] valorRegistro = buscarEnROM(registro);
+
+        // Esta es mi accion
+        accion[0] = valorRegistro[0]; accion[1] = valorRegistro[1]; accion[2] = valorRegistro[2]; accion[3] = valorRegistro[3];
+        // Este es el valor
+        input[0] = valorRegistro[4]; input[1] = valorRegistro[5]; input[2] = valorRegistro[6]; input[3] = valorRegistro[7];
+
+        String checkAction = turnBooleanToBinary(accion);
+        String checkInput = turnBooleanToBinary(input);
+        int decimalInput = Integer.parseInt(checkInput, 2);
+        String deDondeOQue = "#" + decimalInput;
+        String queCosa = "ACC";
+
+        if(checkAction.equals("0000")){
+            System.out.println("OPERACION AUTO ADD a ACC");
+            ACC_valor = CU(false, false, false, true, false, true, false, false, false, true, false, true, PC_Counter, ACC_valor, queCosa, deDondeOQue);
+        }
+        if(checkAction.equals("0001")){
+            System.out.println("OPERACION AUTO SUB a ACC");
+            ACC_valor = CU(false, false, false, true, false, false, true, false, false, false, false, true, PC_Counter, ACC_valor, queCosa, deDondeOQue);
+        }
+        if(checkAction.equals("0010")){
+            System.out.println("OPERACION AUTO AND a ACC");
+            ACC_valor = CU(false, false, false, true, false, false, false, true, false, false, false, true, PC_Counter, ACC_valor, queCosa, deDondeOQue);
+        }
+        if(checkAction.equals("0011")){
+            System.out.println("OPERACION AUTO OR a ACC");
+            ACC_valor = CU(false, false, false, true, false, false, false, false, true, false, false, true, PC_Counter, ACC_valor, queCosa, deDondeOQue);
+        }
+        if(checkAction.equals("0100")){
+            System.out.println("OPERACION AUTO MOV a ACC");
+            ACC_valor = CU(false, false, false, true, true, false, false, false, false, true, false, false, PC_Counter, ACC_valor, queCosa, deDondeOQue);
+        }
+        if(checkAction.equals("0101")){
+            System.out.println("OPERACION AUTO NOT");
+            boolean[] nada = CU(false, false, false, false, false, false, false, false, false, false, false, false, PC_Counter, ACC_valor, queCosa, deDondeOQue);
+        }
+        
+
+        System.out.println("|--------------------- PC ---------------------|        |----------- ROM ------------|");
+        System.out.println("|   PC COUNTER --> " + Arrays.toString(PC_Counter)+"       |" + "        |" + "    R0 -->      " +  turnBooleanToBinary(mostrarROM.ROM_Emulado.get(0).valorEnBooleano) + "    |");
+        System.out.println("|----------------------------------------------|        |    R1 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(1).valorEnBooleano) + "    |");
+        System.out.println("                                                        |    R2 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(2).valorEnBooleano) + "    |");
+        System.out.println("|--------------------- MAR ---------------------|       |    R3 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(3).valorEnBooleano) + "    |");
+        System.out.println("|   MAR OUTPUT --> " + Arrays.toString(MAR_Output)+"       |" + "        |    R4 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(4).valorEnBooleano) + "    |");
+        System.out.println("|----------------------------------------------|        |    R5 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(5).valorEnBooleano) + "    |");
+        System.out.println("                                                        |    R6 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(6).valorEnBooleano) + "    |");
+        System.out.println("                                                        |    R7 -->      " + turnBooleanToBinary(mostrarROM.ROM_Emulado.get(7).valorEnBooleano) + "    |");
+        System.out.println("                                                        |----------------------------|");
+        System.out.println();
+        System.out.println("|-------------------------------------- ACC -----------------------------------------|");
+        System.out.println("|   ACC --> " + Arrays.toString(ACC_valor) + "                 |");
+        System.out.println("|------------------------------------------------------------------------------------|");
+
+
+
+
+
+        try{
+            Thread.sleep(10000);
+        }catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
+        
+        clearScreen();
+
+
+        AutoMode(CualRegistro + 1, PC_Counter, MAR_Output, ACC_valor);
+    }
 
 }
