@@ -38,7 +38,7 @@ Si se ingresó 1 para entrar a modo manual, se debe ingresar la operación a rea
 
 Si se ingresó 2 para entrar a modo automático, el programa realizará las intrucciones y valores de los registros empezando por R0 leyendo cada registro, continuando recursivamente hasta que el programa sea detenido.
 
-![auto](/images/auto.png)
+![automode](/images/automode.png)
 
 ## Memoria Virtual, registros y banderas
 
