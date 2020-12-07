@@ -2,7 +2,7 @@
 
 ## Instalación
 Proceso de instalación de IDE: 
-
+Primero es necesario descargar Java SE 11, el cual se puede descargar [aquí](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) dependiendo la versión de la máquina con la que se trabaja.
 Si el usuario no cuenta con un IDE, puede entrar a la siguiente página para instalar [Visual Studio Code Download Visual Studio Code - Mac, Linux, Windows](https://code.visualstudio.com/download). Esta herramienta gratuita desarrollada por Microsoft es muy sencilla de utilizar y permite ejecutar archivos de Java si se siguen los pasos de forma correcta.  
 
 Una vez en la página que se anexó anteriormente, el usuario debe de elegir la versión apropiada para la máquina con la que esté trabajando. Después de descargar y ejecutar los protocolos de instalación, el usuario puede de inmediato modificar y crear archivos dentro del IDE. Lo que se debe de hacer en primera instancia es ubicar la pestaña de extensiones que se ubica del lado derecho de la ventana dentro de la aplicación. Como se muestra en la imagen a continuación.
@@ -30,7 +30,10 @@ Aquí se pueden modificar los valores de los registros (los primeros ocho) utili
 
 ## Uso
 
+Una vez ejecutado, el programa nos da la opción de entrar a modo manual ingresando 1, donde nos permite introducir operaciones manualmente, o en automático ingresando, que lee los registros para ejecutar las instrucciones.
 ![3](/images/3.png)
+
+Si se ingresó 1 para entrar a modo manual, se debe ingresar la operación a realizar utilizando ACC para referirse al acumulador y R(Número de registro a utilizar, ejemplo: R0 o R4). Al ingresar la operación, podemos observar los valores en PC, MAR, ROM y en el acumulador para facilidad de uso, donde podemos continuar ingresando operaciones hasta cerrar el programa.
 ![4](/images/4.png)
 ## Conjunto de instrucciones
 
