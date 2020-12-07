@@ -1,5 +1,13 @@
 # Proyecto Final: Emulador de CPU
 
+## Integrantes
+
+Marco Velez 26629
+
+Néstor De La Cruz 31116
+
+Héctor Canales 31462
+
 ## Instalación
 Proceso de instalación de IDE: 
 Primero es necesario descargar Java SE 11, el cual se puede descargar [aquí](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) dependiendo la versión de la máquina con la que se trabaja.
@@ -93,11 +101,3 @@ Lo único que es importante mencionar en esta sección es que al elegir la opci�
 | OR                  | Directo           | 0.000224401       |
 | MOV                 | Directo           | 0.000299801       |
 | NOT                 | Directo/Inmediato | 0                 |
-
-## Integrantes
-
-Marco Velez 26629
-
-Néstor De La Cruz 31116
-
-Héctor Canales 31462
