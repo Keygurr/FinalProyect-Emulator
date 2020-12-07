@@ -616,29 +616,44 @@ public class RUN{
         return null;
     }
 
+    public static boolean[] MDRtoMIR(boolean[] MDR){
+        boolean[] resultados = new boolean[4];
+        resultados[0] = MDR[0];
+        resultados[1] = MDR[1];
+        resultados[2] = MDR[2];
+        resultados[3] = MDR[3];
+        return resultados;
+    }
+
+    public static boolean[] MDRgetInput(boolean[] MDR){
+        boolean[] resultados = new boolean[4];
+        resultados[0] = MDR[4];
+        resultados[1] = MDR[5];
+        resultados[2] = MDR[6];
+        resultados[3] = MDR[7];
+        return resultados;
+    }
+
     public static void AutoMode(boolean[] PC_Counter, boolean[] MAR_Output, boolean[] ACC_valor){
         ROM mostrarROM = new ROM();
         
-        boolean[] accion = new boolean[4];
-        boolean[] input = new boolean[4];
 
         PC_Counter = PC(PC_Counter); // aumenta en 1 hasta el 8 (INICIA EN 000 Y AUMENTA HASTA EL 111 Y DE AHI REINICIA A 000)
         MAR_Output = MAR(PC_Counter);// Despues se dirige a MAR
 
         String CualRegistroString = turnBooleanToBinary(MAR_Output);
         int CualRegistro = Integer.parseInt(CualRegistroString, 2);
-
-
         String registro = "R" + CualRegistro;
         boolean[] valorRegistro = buscarEnROM(registro);
 
-        // Esta es mi accion
-        accion[0] = valorRegistro[0]; accion[1] = valorRegistro[1]; accion[2] = valorRegistro[2]; accion[3] = valorRegistro[3];
-        // Este es el valor
-        input[0] = valorRegistro[4]; input[1] = valorRegistro[5]; input[2] = valorRegistro[6]; input[3] = valorRegistro[7];
+        boolean[] MDR = valorRegistro; // Paso lo de ROM a MDR
+        // MDR TIENE 8 SALIDAS, 4 QUE VAN A MIR Y 4 QUE SON DIRECTAMENTE UN OUPUT DE VALOR
+        
+        boolean[] MIR = MDRtoMIR(MDR); // Sacar de MDR lo que va a MIR
+        boolean[] input = MDRgetInput(MDR); // Sacar de MDR lo que va como input/valor
 
-        String checkAction = turnBooleanToBinary(accion);
-        String checkInput = turnBooleanToBinary(input);
+        String checkAction = turnBooleanToBinary(MIR); // MIR 
+        String checkInput = turnBooleanToBinary(input); // Input
         int decimalInput = Integer.parseInt(checkInput, 2);
         String deDondeOQue = "#" + decimalInput;
         String queCosa = "ACC";
