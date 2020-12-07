@@ -7,9 +7,11 @@ Si el usuario no cuenta con un IDE, puede entrar a la siguiente página para ins
 
 Una vez en la página que se anexó anteriormente, el usuario debe de elegir la versión apropiada para la máquina con la que esté trabajando. Después de descargar y ejecutar los protocolos de instalación, el usuario puede de inmediato modificar y crear archivos dentro del IDE. Lo que se debe de hacer en primera instancia es ubicar la pestaña de extensiones que se ubica del lado derecho de la ventana dentro de la aplicación. Como se muestra en la imagen a continuación.
 
+![1](/images/1.png)]
 
-Captura de pantalla que muestra la ventana de inicio con las pestañas de acceso
 Una vez dentro del menú de extensiones, dentro de la barra buscadora puede ingresar “Java” para encontrar la extensión desarrollada por Microsoft para ejecutar archivos del tipo “.java”.
+
+![2](/images/2.png)
 
 La extensión que se muestra en la primera posición en orden descendente en la captura de pantalla a la izquierda muestra la extensión llamada “Debugger for Java”, que es la que debe de instalarse para hacer uso de este emulador.
 
@@ -19,8 +21,17 @@ Finalmente lo que resta es abrir el archivo de “RUN.java” desde el directori
 
 
 ## Configuración
+
+Para configurar la ROM se tiene que dirigir a su clase donde se inicializan los registros.
+
+![5](/images/5.png)
+
+Aquí se pueden modificar los valores de los registros (los primeros ocho) utilizando booleanos para expresar un uno o cero.
+
 ## Uso
 
+![3](/images/3.png)
+![4](/images/4.png)
 ## Conjunto de instrucciones
 
 | CODIGO DE OPERACIÓN | TIPO              | CATEGORIA             | DESCRIPCIÓN                                                                       |
